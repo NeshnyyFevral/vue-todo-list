@@ -4,10 +4,10 @@
 			:class="{ 'list-item__toggle-btn--complete': this.task.complete }">✓</my-button>
 		<span class="list-item__text" :class="{ 'list-item__text--complete': this.task.complete }">
 			{{ task.title }}</span>
-		<transition-group name="list-item__container">
-			<my-button @click="$emit('removeTask')" v-show="this.hover" class="list-item__remove-btn" :key="Date.now()">x
+		<transition name="list-item__container">
+			<my-button @click="$emit('removeTask')" v-show="this.hover" class="list-item__remove-btn">x
 			</my-button>
-		</transition-group>
+		</transition>
 	</li>
 </template>
 

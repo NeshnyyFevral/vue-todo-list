@@ -1,11 +1,9 @@
 <template>
-	<ul class="todo-list">
-		<transition-group name="todo-list__container">
-			<todo-list-item v-for="task in tasks" :key="task.id" :task="task" @removeTask="$emit('removeTask', task)"
-				@toggleDone="$emit('toggleDone', task)">
-			</todo-list-item>
-		</transition-group>
-	</ul>
+	<transition-group name="todo-list" tag="ul" class="todo-list">
+		<todo-list-item v-for="task in tasks" :key="task.id" :task="task" @removeTask="$emit('removeTask', task)"
+			@toggleDone="$emit('toggleDone', task)">
+		</todo-list-item>
+	</transition-group>
 </template>
 
 <script>
@@ -33,13 +31,13 @@ export default {
 	padding: 40px;
 }
 
-.todo-list__container-enter-active,
-.todo-list__container-leave-active {
+.todo-list-enter-active,
+.todo-list-leave-active {
 	transition: all 0.5s ease;
 }
 
-.todo-list__container-enter-from,
-.todo-list__container-leave-to {
+.todo-list-enter-from,
+.todo-list-leave-to {
 	opacity: 0;
 	transform: translateX(30px);
 }
