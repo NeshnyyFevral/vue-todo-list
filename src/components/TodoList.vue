@@ -1,13 +1,16 @@
 <template>
 	<transition-group name="todo-list" tag="ul" class="todo-list">
-		<todo-list-item v-for="task in tasks" :key="task.id" :task="task" @removeTask="$emit('removeTask', task)"
+		<todo-list-item
+			v-for="task in tasks"
+			:key="task.id" :task="task" @removeTask="$emit('removeTask', task)"
 			@toggleDone="$emit('toggleDone', task)">
 		</todo-list-item>
 	</transition-group>
 </template>
 
 <script>
-import TodoListItem from './TodoListItem.vue'
+import TodoListItem from './TodoListItem.vue';
+
 export default {
 	components: {
 		TodoListItem,
@@ -16,9 +19,9 @@ export default {
 		tasks: {
 			type: Array,
 			default: () => [],
-		}
-	}
-}
+		},
+	},
+};
 </script>
 
 <style scoped>

@@ -10,7 +10,7 @@ export default {
 	data() {
 		return {
 			text: '',
-		}
+		};
 	},
 	methods: {
 		create() {
@@ -21,9 +21,9 @@ export default {
 			task.complete = false;
 			this.$emit('createTask', task);
 			this.text = '';
-		}
-	}
-}
+		},
+	},
+};
 </script>
 
 <style scoped>

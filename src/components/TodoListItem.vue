@@ -17,14 +17,14 @@ export default {
 		task: {
 			type: Object,
 			default: () => ({}),
-		}
+		},
 	},
 	data() {
 		return {
 			hover: false,
-		}
-	}
-}
+		};
+	},
+};
 </script>
 
 <style scoped>

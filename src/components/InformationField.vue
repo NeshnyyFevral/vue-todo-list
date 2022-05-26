@@ -1,20 +1,35 @@
 <template>
 	<div class="information">
 		<transition-group name="information__container">
-			<information-field-item class="information__item" key="1" :counter="information.total">Tasks
+			<information-field-item
+				class="information__item"
+				key="1"
+				:counter="information.total">
+				Tasks
 			</information-field-item>
-			<information-field-item class="information__item" key="2" :counter="information.done">Tasks Done
+			<information-field-item
+				class="information__item"
+				key="2"
+				:counter="information.done">
+				Tasks Done
 			</information-field-item>
-			<my-button v-if="visibleRemoveDoneBtn" key="3" @click="$emit('removeDone')" class="information__remove-button">
+			<my-button
+				v-if="visibleRemoveDoneBtn"
+				key="3" @click="$emit('removeDone')"
+				class="information__remove-button">
 				Remove Done
 			</my-button>
-			<my-button @click="$emit('removeAll')" key="4" class="information__remove-button">Remove All</my-button>
+			<my-button
+				@click="$emit('removeAll')"
+				key="4" class="information__remove-button">
+				Remove All
+			</my-button>
 		</transition-group>
 	</div>
 </template>
 
 <script>
-import InformationFieldItem from "./InformationFieldItem.vue";
+import InformationFieldItem from './InformationFieldItem.vue';
 
 export default {
 	components: {
@@ -28,9 +43,9 @@ export default {
 		visibleRemoveDoneBtn: {
 			type: Boolean,
 			default: false,
-		}
-	}
-}
+		},
+	},
+};
 </script>
 
 <style scoped>
