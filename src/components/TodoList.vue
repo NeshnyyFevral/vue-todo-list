@@ -63,12 +63,6 @@ const props = defineProps({
 
 @media screen and (max-width: 500px){
 	.list{
-		height: 350px;
-	}
-}
-
-@media screen and (max-width: 400px){
-	.list{
 		height: 300px;
 	}
 }
