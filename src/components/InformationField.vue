@@ -98,4 +98,35 @@ const props = defineProps({
 			position: absolute;
 	}
 }
+
+@media screen and (max-width: 700px){
+  .information{
+    justify-content: center;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .information{
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    padding: 10px 5px;
+    gap: 5px;
+  }
+
+  .item {
+    width: 140px;
+    justify-content: center;
+
+  }
+
+  .remove-button {
+    width: 140px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 540px){
+}
 </style>

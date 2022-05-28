@@ -36,7 +36,7 @@ const create = () => {
 
 <style module lang="scss">
 .input {
-	height: 75px;
+	height: 90px;
 	background-color: rgb(242, 242, 242);
 	display: flex;
 	align-items: center;
@@ -69,5 +69,20 @@ const create = () => {
 
 .button:hover {
 	background-color: rgb(41, 41, 171);
+}
+
+@media screen and (max-width: 650px){
+	.button{
+		right: 50px;
+	}
+	.input input{
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.button{
+		right: 35px;
+	}
 }
 </style>

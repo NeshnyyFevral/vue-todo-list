@@ -72,13 +72,13 @@ const hover = ref(false);
 .remove-btn {
 	border: none;
 	position: absolute;
-	top: 13px;
+	top: 12px;
 	right: 8px;
 	left: auto;
 	background-color: red;
 	font-size: 30px;
 	line-height: 32px;
-	padding: 0px 10.5px 3px;
+	padding: 3px 13px 6px;
 	border-radius: 50%;
 	cursor: pointer;
 	color: #fff;

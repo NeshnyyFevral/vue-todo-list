@@ -70,7 +70,9 @@ const completeTasks = computed(
 }
 
 .root {
-  background: linear-gradient(rgb(134, 255, 134), rgb(0, 0, 0));
+  /* background: linear-gradient(rgb(0, 211, 253), rgb(187, 32, 138)); */
+	background: linear-gradient(3deg, #e6d16c, #16014c);
+	background-repeat: no-repeat;
   height: 100vh;
   font-family: sans-serif;
 }
@@ -78,7 +80,7 @@ const completeTasks = computed(
 .container {
   display: block;
   margin: 0 auto;
-  padding-top: 150px;
+  padding-top: 100px;
   max-width: 700px;
   text-align: center;
   margin-bottom: 30px;
@@ -92,5 +94,36 @@ const completeTasks = computed(
 .title {
   font-size: 75px;
   color: #fff;
+}
+
+@media screen and (max-width: 700px){
+	.container{
+		padding: 90px 40px;
+	}
+}
+
+@media screen and (max-width: 650px){
+	.container{
+		padding: 40px 40px;
+	}
+	.title{
+		font-size: 60px;
+    margin-bottom: 20px;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.container{
+		padding: 40px 20px;
+	}
+	.title{
+		font-size: 45px;
+	}
+}
+
+@media screen and (max-width: 300px){
+	.container{
+		padding: 25px 20px;
+	}
 }
 </style>
