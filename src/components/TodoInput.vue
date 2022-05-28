@@ -1,33 +1,41 @@
 <template>
-	<div class="todo-input">
-		<my-input @keyup.enter="create" :value="text" @input="text = $event.target.value"></my-input>
-		<my-button @click="create" class="todo-input__button">+</my-button>
-	</div>
+  <div :class="$style.input">
+    <input
+      placeholder="New task"
+      type="text"
+      :value="text"
+      @keyup.enter="create"
+      @input="text = $event.target.value"
+    >
+    <button
+      :class="$style.button"
+      @click="create"
+    >
+      +
+    </button>
+  </div>
 </template>
 
-<script>
-export default {
-	data() {
-		return {
-			text: '',
-		};
-	},
-	methods: {
-		create() {
-			if (!this.text) return;
-			const task = {};
-			task.id = Date.now();
-			task.title = this.text;
-			task.complete = false;
-			this.$emit('createTask', task);
-			this.text = '';
-		},
-	},
+<script setup>
+import { ref } from 'vue';
+
+const emit = defineEmits(['createTask']);
+
+const text = ref('');
+
+const create = () => {
+	if (!text.value) return;
+	const task = {};
+	task.id = Date.now();
+	task.title = text.value;
+	task.complete = false;
+	emit('createTask', task);
+	text.value = '';
 };
 </script>
 
-<style scoped>
-.todo-input {
+<style module lang="scss">
+.input {
 	height: 75px;
 	background-color: rgb(242, 242, 242);
 	display: flex;
@@ -36,7 +44,7 @@ export default {
 	position: relative;
 }
 
-.todo-input input {
+.input input {
 	width: 80%;
 	border-radius: 30px;
 	border: 3px solid rgb(0, 0, 106);
@@ -46,9 +54,20 @@ export default {
 	font-weight: 500;
 }
 
-.todo-input__button {
+.button {
 	position: absolute;
+	border: none;
+	background-color: rgb(121, 121, 255);
 	right: 80px;
+	padding: 0 8.5px;
 	border-radius: 50%;
+	font-size: 30px;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.1s linear;
+}
+
+.button:hover {
+	background-color: rgb(41, 41, 171);
 }
 </style>

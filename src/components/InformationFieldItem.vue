@@ -1,23 +1,21 @@
 <template>
-	<div class="information-item">
-		<slot></slot>
-		<span class="information-item__counter">{{ counter }}</span>
-	</div>
+  <div :class="$style.item">
+    <slot />
+    <span :class="$style.counter">{{ props.counter }}</span>
+  </div>
 </template>
 
-<script>
-export default {
-	props: {
-		counter: {
-			type: Number,
-			default: 0,
-		},
+<script setup>
+const props = defineProps({
+	counter: {
+		type: Number,
+		default: 0,
 	},
-};
+});
 </script>
 
-<style scoped>
-.information-item {
+<style module lang="scss">
+.item {
 	display: inline-flex;
 	background-color: rgb(101, 101, 255);
 	color: #fff;
@@ -26,7 +24,7 @@ export default {
 	align-items: center;
 }
 
-.information-item__counter {
+.counter {
 	background-color: #fff;
 	color: rgb(101, 101, 255);
 	padding: 2px 8px;

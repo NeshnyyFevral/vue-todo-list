@@ -1,54 +1,55 @@
 <template>
-	<div class="information">
-		<transition-group name="information__container">
-			<information-field-item
-				class="information__item"
-				key="1"
-				:counter="information.total">
-				Tasks
-			</information-field-item>
-			<information-field-item
-				class="information__item"
-				key="2"
-				:counter="information.done">
-				Tasks Done
-			</information-field-item>
-			<my-button
-				v-if="visibleRemoveDoneBtn"
-				key="3" @click="$emit('removeDone')"
-				class="information__remove-button">
-				Remove Done
-			</my-button>
-			<my-button
-				@click="$emit('removeAll')"
-				key="4" class="information__remove-button">
-				Remove All
-			</my-button>
-		</transition-group>
-	</div>
+  <div :class="$style.information">
+    <transition-group :name="$style.container">
+      <information-field-item
+        :key="1"
+        :class="$style.item"
+        :counter="props.information.total"
+      >
+        Tasks
+      </information-field-item>
+      <information-field-item
+        :key="2"
+        :class="$style.item"
+        :counter="props.information.done"
+      >
+        Tasks Done
+      </information-field-item>
+      <button
+        v-if="props.visibleRemoveDoneBtn"
+        :key="3"
+        :class="$style['remove-button']"
+        @click="$emit('removeDone')"
+      >
+        Remove Done
+      </button>
+      <button
+        :key="4"
+        :class="$style['remove-button']"
+        @click="$emit('removeAll')"
+      >
+        Remove All
+      </button>
+    </transition-group>
+  </div>
 </template>
 
-<script>
+<script setup>
 import InformationFieldItem from './InformationFieldItem.vue';
 
-export default {
-	components: {
-		InformationFieldItem,
+const props = defineProps({
+	information: {
+		type: Object,
+		required: true,
 	},
-	props: {
-		information: {
-			type: Object,
-			require: true,
-		},
-		visibleRemoveDoneBtn: {
-			type: Boolean,
-			default: false,
-		},
+	visibleRemoveDoneBtn: {
+		type: Boolean,
+		default: false,
 	},
-};
+});
 </script>
 
-<style scoped>
+<style module lang="scss">
 .information {
 	height: 50px;
 	background-color: rgb(245, 245, 245);
@@ -58,11 +59,11 @@ export default {
 	justify-content: end;
 }
 
-.information__item {
+.item {
 	margin-right: 10px;
 }
 
-.information .information__remove-button {
+.remove-button {
 	margin-right: 10px;
 	border-radius: 20px;
 	display: inline-flex;
@@ -72,24 +73,29 @@ export default {
 	border-radius: 15px;
 	align-items: center;
 	font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.1s linear;
 }
 
-.information .information__remove-button:hover {
+.remove-button:hover {
 	background-color: rgb(195, 22, 22);
 }
 
-.information .information__container-move,
-.information .information__container-enter-active,
-.information .information__container-leave-active {
-	transition: all 0.5s ease;
-}
+.container{
+  &:global(-move),
+  &:global(-enter-active),
+	&:global(-leave-active){
+		transition: all 0.5s ease;
+	}
 
-.information .information__container-enter-from,
-.information .information__container-leave-to {
-	opacity: 0;
-}
+	&:global(-enter-from),
+	&:global(-leave-to){
+		opacity: 0;
+	}
 
-.information .information__container-leave-active {
-	position: absolute;
+  &:global(-leave-active){
+			position: absolute;
+	}
 }
 </style>

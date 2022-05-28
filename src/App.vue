@@ -1,69 +1,66 @@
 <template>
-  <div class="app">
-    <div class="app__container">
-      <h1 class="app__title">Vue ToDo List</h1>
-      <div class="app__body">
-        <information-field :visibleRemoveDoneBtn="completeTasks > 0"
-          @removeDone="removeDone" @removeAll="removeAll"
-          :information="{ total: this.tasks.length, done: completeTasks }
-          ">
-        </information-field>
-        <todo-list @removeTask="removeTask" @toggleDone="toggleDone" :tasks="tasks"></todo-list>
-        <todo-input @createTask="createTask"></todo-input>
+  <div :class="$style.root">
+    <div :class="$style.container">
+      <h1 :class="$style.title">
+        Vue ToDo List
+      </h1>
+      <div :class="$style.body">
+        <information-field
+          :information="{ total: tasks.length, done: completeTasks }"
+          :visible-remove-done-btn="completeTasks > 0"
+          @removeDone="removeDone"
+          @removeAll="removeAll"
+        />
+        <todo-list
+          :tasks="tasks"
+          @removeTask="removeTask"
+          @toggleDone="toggleDone"
+        />
+        <todo-input @createTask="createTask" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
+import { computed } from '@vue/reactivity';
 import InformationField from './components/InformationField.vue';
 import TodoList from './components/TodoList.vue';
 import TodoInput from './components/TodoInput.vue';
 
-export default {
-	components: {
-		InformationField, TodoList, TodoInput,
-	},
-	data() {
-		return {
-			tasks: [],
-		};
-	},
-	methods: {
-		createTask(task) {
-			this.tasks.push(task);
-		},
-		removeAll() {
-			this.tasks = [];
-		},
-		toggleDone(task) {
-			this.tasks = [...this.tasks].map((el) => {
-				if (el.id === task.id) {
-					el.complete = !el.complete;
-				}
-				return el;
-			});
-		},
-		removeDone() {
-			this.tasks = [...this.tasks].filter((task) => !task.complete);
-		},
-		removeTask(task) {
-			this.tasks = [...this.tasks].filter((el) => el.id !== task.id);
-		},
-	},
-	computed: {
-		completeTasks() {
-			let count = 0;
-			this.tasks.forEach((task) => {
-				if (task.complete) count += 1;
-			});
-			return count;
-		},
-	},
+const tasks = ref([]);
+
+const createTask = (task) => {
+	tasks.value.push(task);
 };
+
+const removeAll = () => {
+	tasks.value = [];
+};
+
+const toggleDone = (task) => {
+	task.complete = !task.complete;
+};
+
+const removeDone = () => {
+	tasks.value = [...tasks.value].filter((task) => !task.complete);
+};
+
+const removeTask = (task) => {
+	const index = tasks.value.findIndex((el) => el.id === task.id);
+	tasks.value.splice(index, 1);
+};
+
+const completeTasks = computed(
+	() => tasks.value.reduce(
+		(acc, cur) => (cur.complete ? acc + 1 : acc),
+		0,
+	),
+);
 </script>
 
-<style>
+<style module lang="scss">
 *,
 *::after,
 *::before {
@@ -72,13 +69,13 @@ export default {
   padding: 0;
 }
 
-.app {
+.root {
   background: linear-gradient(rgb(134, 255, 134), rgb(0, 0, 0));
   height: 100vh;
   font-family: sans-serif;
 }
 
-.app__container {
+.container {
   display: block;
   margin: 0 auto;
   padding-top: 150px;
@@ -87,12 +84,12 @@ export default {
   margin-bottom: 30px;
 }
 
-.app__body {
+.body {
   background-color: #fff;
   border-radius: 100%;
 }
 
-.app__title {
+.title {
   font-size: 75px;
   color: #fff;
 }

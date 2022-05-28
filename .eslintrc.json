@@ -4,7 +4,7 @@
         "es2021": true
     },
     "extends": [
-        "plugin:vue/essential",
+        "plugin:vue/recommended",
         "airbnb-base"
     ],
     "parserOptions": {
@@ -18,6 +18,7 @@
         "no-console": "off",
         "import/no-extraneous-dependencies": "off",
         "no-param-reassign": "off",
+        "vue/no-duplicate-attributes": "off",
         "indent": [2, "tab"],
         "no-tabs": 0,
         "quotes": [
