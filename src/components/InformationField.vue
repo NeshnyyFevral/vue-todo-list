@@ -1,30 +1,35 @@
 <template>
-  <div :class="$style.information">
-    <transition-group :name="$style.container">
+  <div :class="$style.header">
+    <div
+      :class="$style.information"
+    >
       <information-field-item
-        :key="1"
         :class="$style.item"
         :counter="props.information.total"
       >
         Tasks
       </information-field-item>
       <information-field-item
-        :key="2"
         :class="$style.item"
         :counter="props.information.done"
       >
         Tasks Done
       </information-field-item>
+    </div>
+    <transition-group
+      :name="$style.container"
+      tag="div"
+    >
       <button
         v-if="props.visibleRemoveDoneBtn"
-        :key="3"
+        :key="1"
         :class="$style['remove-button']"
         @click="$emit('removeDone')"
       >
         Remove Done
       </button>
       <button
-        :key="4"
+        :key="2"
         :class="$style['remove-button']"
         @click="$emit('removeAll')"
       >
@@ -50,36 +55,36 @@ const props = defineProps({
 </script>
 
 <style module lang="scss">
-.information {
+.header {
 	height: 50px;
 	background-color: rgb(245, 245, 245);
 	text-align: end;
 	display: flex;
 	align-items: center;
-	justify-content: end;
+	justify-content: space-between;
 }
 
 .item {
-	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .remove-button {
 	margin-right: 10px;
 	border-radius: 20px;
 	display: inline-flex;
-	background-color: rgb(255, 0, 0);
+	background-color: rgb(255, 54, 107);
 	color: #fff;
-	padding: 7px 15px;
+	padding: 6px 13px;
 	border-radius: 15px;
 	align-items: center;
 	font-size: 16px;
-  border: none;
+  border: 2px solid #333;
   cursor: pointer;
   transition: background-color 0.1s linear;
 }
 
 .remove-button:hover {
-	background-color: rgb(195, 22, 22);
+	background-color: rgb(223, 0, 0);
 }
 
 .container{
@@ -100,14 +105,18 @@ const props = defineProps({
 }
 
 @media screen and (max-width: 700px){
-  .information{
+  .header{
     justify-content: center;
     white-space: nowrap;
+  }
+  .item{
+    margin-left: 0;
+    margin-right: 10px;
   }
 }
 
 @media screen and (max-width: 700px){
-  .information{
+  .header{
     flex-wrap: wrap;
     justify-content: center;
     height: auto;
@@ -127,6 +136,4 @@ const props = defineProps({
   }
 }
 
-@media screen and (max-width: 540px){
-}
 </style>

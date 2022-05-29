@@ -57,7 +57,7 @@ const create = () => {
 .button {
 	position: absolute;
 	border: none;
-	background-color: rgb(121, 121, 255);
+	background-color: rgb(130, 130, 130);
 	right: 80px;
 	padding: 0 8.5px;
 	border-radius: 50%;
@@ -68,12 +68,12 @@ const create = () => {
 }
 
 .button:hover {
-	background-color: rgb(41, 41, 171);
+	background-color: rgb(63, 63, 63);
 }
 
 @media screen and (max-width: 650px){
 	.button{
-		right: 50px;
+		right: 40px;
 	}
 	.input input{
 		width: 90%;

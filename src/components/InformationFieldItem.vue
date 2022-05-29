@@ -15,19 +15,21 @@ const props = defineProps({
 </script>
 
 <style module lang="scss">
+$color: rgb(135, 135, 135);
 .item {
 	display: inline-flex;
-	background-color: rgb(101, 101, 255);
+	background-color: $color;
 	color: #fff;
-	padding: 5px 15px;
+	padding: 4px 13px;
 	border-radius: 15px;
 	align-items: center;
+	border: 2px solid #333;
 }
 
 .counter {
 	background-color: #fff;
-	color: rgb(101, 101, 255);
-	padding: 2px 8px;
+	color: $color;
+	padding: 1px 7px 0.5px;
 	border-radius: 50%;
 	margin-left: 5px;
 }

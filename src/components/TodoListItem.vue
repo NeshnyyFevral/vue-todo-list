@@ -7,9 +7,7 @@
     <button
       :class="[$style['toggle-btn'], {[$style['btn-complete']]: props.task.complete }]"
       @click="$emit('toggleDone')"
-    >
-      ✓
-    </button>
+    />
     <span
       :class="[$style['item-text'], {[$style['text-complete']]: props.task.complete }]"
     >
@@ -22,9 +20,7 @@
         v-show="hover"
         :class="$style['remove-btn']"
         @click="$emit('removeTask')"
-      >
-        x
-      </button>
+      />
     </transition>
   </li>
 </template>
@@ -53,39 +49,37 @@ const hover = ref(false);
 }
 
 .toggle-btn {
+	background-image: url(../icons/accept.svg);
+	background-repeat: no-repeat;
 	position: absolute;
-	top: 12px;
-	left: 10px;
-	background-color: rgb(12, 179, 12);
-	border-radius: 50%;
-	transition: background-color 0.2s linear;
+	top: 20px;
+	left: 18px;
+	background-color: #fff;
 	cursor: pointer;
 	border: none;
-	padding: 0 8.5px;
-	font-size: 30px;
-	color: #fff;
+	padding: 12px;
+	transition: background-color 0.2s linear, background-image 0.2s linear;
 }
 .toggle-btn:hover {
-		background-color: rgb(6, 124, 6);
+		background-color: rgb(225, 225, 225);
 }
 
 .remove-btn {
+	background-image: url(../icons/cart.svg);
+	background-color: #fff;
 	border: none;
 	position: absolute;
 	top: 12px;
 	right: 8px;
 	left: auto;
-	background-color: red;
-	font-size: 30px;
-	line-height: 32px;
-	padding: 3px 13px 6px;
+	padding: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	color: #fff;
+	transition: background-color 0.2s linear;
 }
 
 .remove-btn:hover {
-	background-color: rgb(185, 0, 0);
+	background-color: rgb(232, 232, 232);
 }
 
 .item-text {
@@ -94,13 +88,13 @@ const hover = ref(false);
 }
 
 .btn-complete {
-	background-color: rgb(144, 144, 144);
-	opacity: 0.6;
+	background-image: url(../icons/cancel.svg);
+	opacity: 0.5;
 }
 
 .text-complete {
 	text-decoration: line-through;
-	opacity: 0.6;
+	opacity: 0.5;
 }
 .container{
 	&:global(-enter-active),
