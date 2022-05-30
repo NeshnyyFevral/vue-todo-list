@@ -19,6 +19,7 @@
         "import/no-extraneous-dependencies": "off",
         "no-param-reassign": "off",
         "vue/no-duplicate-attributes": "off",
+        "import/prefer-default-export": "off",
         "indent": [2, "tab"],
         "no-tabs": 0,
         "quotes": [

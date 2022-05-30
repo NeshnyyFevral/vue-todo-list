@@ -18,8 +18,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { storeTasks } from '../stores/tasks';
 
-const emit = defineEmits(['createTask']);
+const store = storeTasks();
 
 const text = ref('');
 
@@ -29,7 +30,7 @@ const create = () => {
 	task.id = Date.now();
 	task.title = text.value;
 	task.complete = false;
-	emit('createTask', task);
+	store.createTask(task);
 	text.value = '';
 };
 </script>

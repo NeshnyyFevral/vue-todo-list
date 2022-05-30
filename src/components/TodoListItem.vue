@@ -6,7 +6,7 @@
   >
     <button
       :class="[$style['toggle-btn'], {[$style['btn-complete']]: props.task.complete }]"
-      @click="$emit('toggleDone')"
+      @click="store.toggleDone(props.task)"
     />
     <span
       :class="[$style['item-text'], {[$style['text-complete']]: props.task.complete }]"
@@ -19,7 +19,7 @@
       <button
         v-show="hover"
         :class="$style['remove-btn']"
-        @click="$emit('removeTask')"
+        @click="store.removeTask(props.task)"
       />
     </transition>
   </li>
@@ -27,6 +27,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { storeTasks } from '../stores/tasks';
+
+const store = storeTasks();
 
 const props = defineProps({
 	task: {

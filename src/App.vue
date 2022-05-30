@@ -5,42 +5,33 @@
         Vue ToDo List
       </h1>
       <div :class="$style.body">
-        <information-field
-          :information="{ total: tasks.length, done: completeTasks }"
-          :visible-remove-done-btn="completeTasks > 0"
-          @removeDone="removeDone"
-          @removeAll="removeAll"
-        />
-        <todo-list
-          :tasks="tasks"
-          @removeTask="removeTask"
-          @toggleDone="toggleDone"
-        />
-        <todo-input @createTask="createTask" />
+        <information-field />
+        <todo-list />
+        <todo-input />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { computed } from '@vue/reactivity';
+/* import { ref } from 'vue';
+import { computed } from '@vue/reactivity'; */
 import InformationField from './components/InformationField.vue';
 import TodoList from './components/TodoList.vue';
 import TodoInput from './components/TodoInput.vue';
 
-const tasks = ref([]);
+/* const toggleDone = (task) => {
+	// task.complete = !task.complete;
 
-const createTask = (task) => {
+};
+ const tasks = ref([]);
+
+ const createTask = (task) => {
 	tasks.value.push(task);
 };
 
 const removeAll = () => {
 	tasks.value = [];
-};
-
-const toggleDone = (task) => {
-	task.complete = !task.complete;
 };
 
 const removeDone = () => {
@@ -57,7 +48,7 @@ const completeTasks = computed(
 		(acc, cur) => (cur.complete ? acc + 1 : acc),
 		0,
 	),
-);
+); */
 </script>
 
 <style module lang="scss">

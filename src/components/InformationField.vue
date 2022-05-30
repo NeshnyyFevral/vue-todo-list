@@ -5,13 +5,13 @@
     >
       <information-field-item
         :class="$style.item"
-        :counter="props.information.total"
+        :counter="store.tasks.length"
       >
         Tasks
       </information-field-item>
       <information-field-item
         :class="$style.item"
-        :counter="props.information.done"
+        :counter="store.completeTasks"
       >
         Tasks Done
       </information-field-item>
@@ -21,17 +21,17 @@
       tag="div"
     >
       <button
-        v-if="props.visibleRemoveDoneBtn"
+        v-if="store.completeTasks > 0"
         :key="1"
         :class="$style['remove-button']"
-        @click="$emit('removeDone')"
+        @click="store.removeDone"
       >
         Remove Done
       </button>
       <button
         :key="2"
         :class="$style['remove-button']"
-        @click="$emit('removeAll')"
+        @click="store.removeAll"
       >
         Remove All
       </button>
@@ -41,17 +41,9 @@
 
 <script setup>
 import InformationFieldItem from './InformationFieldItem.vue';
+import { storeTasks } from '../stores/tasks';
 
-const props = defineProps({
-	information: {
-		type: Object,
-		required: true,
-	},
-	visibleRemoveDoneBtn: {
-		type: Boolean,
-		default: false,
-	},
-});
+const store = storeTasks();
 </script>
 
 <style module lang="scss">

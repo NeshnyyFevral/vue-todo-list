@@ -5,24 +5,25 @@
     :class="$style.list"
   >
     <todo-list-item
-      v-for="task in props.tasks"
+      v-for="task in store.tasks"
       :key="task.id"
       :task="task"
-      @removeTask="$emit('removeTask', task)"
-      @toggleDone="$emit('toggleDone', task)"
     />
   </transition-group>
 </template>
 
 <script setup>
 import TodoListItem from './TodoListItem.vue';
+import { storeTasks } from '../stores/tasks';
 
-const props = defineProps({
+const store = storeTasks();
+
+/* const props = defineProps({
 	tasks: {
 		type: Array,
 		default: () => ([]),
 	},
-});
+}); */
 </script>
 
 <style module lang="scss">
