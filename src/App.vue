@@ -14,41 +14,14 @@
 </template>
 
 <script setup>
-/* import { ref } from 'vue';
-import { computed } from '@vue/reactivity'; */
+import { watch } from 'vue';
 import InformationField from './components/InformationField.vue';
 import TodoList from './components/TodoList.vue';
 import TodoInput from './components/TodoInput.vue';
+import { storeTasks } from './stores/tasks';
 
-/* const toggleDone = (task) => {
-	// task.complete = !task.complete;
-
-};
- const tasks = ref([]);
-
- const createTask = (task) => {
-	tasks.value.push(task);
-};
-
-const removeAll = () => {
-	tasks.value = [];
-};
-
-const removeDone = () => {
-	tasks.value = [...tasks.value].filter((task) => !task.complete);
-};
-
-const removeTask = (task) => {
-	const index = tasks.value.findIndex((el) => el.id === task.id);
-	tasks.value.splice(index, 1);
-};
-
-const completeTasks = computed(
-	() => tasks.value.reduce(
-		(acc, cur) => (cur.complete ? acc + 1 : acc),
-		0,
-	),
-); */
+const store = storeTasks();
+watch(store.tasks, store.watchTasks);
 </script>
 
 <style module lang="scss">

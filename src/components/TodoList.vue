@@ -17,13 +17,6 @@ import TodoListItem from './TodoListItem.vue';
 import { storeTasks } from '../stores/tasks';
 
 const store = storeTasks();
-
-/* const props = defineProps({
-	tasks: {
-		type: Array,
-		default: () => ([]),
-	},
-}); */
 </script>
 
 <style module lang="scss">
