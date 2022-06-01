@@ -12,8 +12,7 @@ export default function createApp() {
 		},
 	};
 
-	const app = _createApp(App)
-		.use(pinia);
+	const app = _createApp(App);
 
 	return {
 		pinia, app,

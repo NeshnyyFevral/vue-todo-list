@@ -22,6 +22,7 @@ import { storeTasks } from './stores/tasks';
 
 const store = storeTasks();
 watch(store.tasks, store.watchTasks);
+
 </script>
 
 <style module lang="scss">
