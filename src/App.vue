@@ -77,17 +77,17 @@ watch(store.tasks, store.watchTasks);
 }
 
 @media screen and (max-width: 500px){
-	.container{
-		padding: 20px 20px;
-	}
-	.title{
-		font-size: 45px;
-	}
+  .container{
+    padding: 20px 20px;
+  }
+  .title{
+    font-size: 45px;
+  }
 }
 
 @media screen and (max-width: 400px){
-	.container{
-		padding: 25px 20px;
-	}
+  .container{
+    padding: 25px 20px;
+  }
 }
 </style>
