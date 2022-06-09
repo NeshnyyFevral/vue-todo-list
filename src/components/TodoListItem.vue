@@ -39,71 +39,71 @@ const hover = ref(false);
 
 <style module lang="scss">
 .listItem {
-	border: 2px solid rgb(225, 225, 225);
-	border-radius: 30px;
-	padding: 20px;
-	margin-bottom: 10px;
-	position: relative;
-	overflow-x: hidden;
+  border: 2px solid rgb(225, 225, 225);
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .toggleBtn {
-	background-image: url(../icons/accept.svg);
-	background-repeat: no-repeat;
-	position: absolute;
-	top: 20px;
-	left: 18px;
-	background-color: #fff;
-	cursor: pointer;
-	border: none;
-	padding: 12px;
-	transition: background-color 0.2s linear, background-image 0.2s linear;
+  background-image: url(../icons/accept.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  left: 18px;
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 12px;
+  transition: background-color 0.2s linear, background-image 0.2s linear;
 }
 .toggleBtn:hover {
-	background-color: rgb(225, 225, 225);
+  background-color: rgb(225, 225, 225);
 }
 
 .removeBtn {
-	background-image: url(../icons/cart.svg);
-	background-color: #fff;
-	border: none;
-	position: absolute;
-	top: 12px;
-	right: 8px;
-	left: auto;
-	padding: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: background-color 0.2s linear;
+  background-image: url(../icons/cart.svg);
+  background-color: #fff;
+  border: none;
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  left: auto;
+  padding: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
 }
 
 .removeBtn:hover {
-	background-color: rgb(232, 232, 232);
+  background-color: rgb(232, 232, 232);
 }
 
 .itemText {
-	margin-left: 40px;
-	font-size: 20px;
+  margin-left: 40px;
+  font-size: 20px;
 }
 
 .btnComplete {
-	background-image: url(../icons/cancel.svg);
-	opacity: 0.5;
+  background-image: url(../icons/cancel.svg);
+  opacity: 0.5;
 }
 
 .textComplete {
-	text-decoration: line-through;
-	opacity: 0.5;
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 .container{
-	&:global(-enter-active),
-	&:global(-leave-active) {
-		transition: all 0.2s ease;
-	}
-	&:global(-enter-from),
-	&:global(-leave-to) {
-		opacity: 0;
-	transform: translateX(20px);
-	}
+  &:global(-enter-active),
+  &:global(-leave-active) {
+    transition: all 0.2s ease;
+  }
+  &:global(-enter-from),
+  &:global(-leave-to) {
+    opacity: 0;
+    transform: translateX(20px);
+  }
 }
 </style>

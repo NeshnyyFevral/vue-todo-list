@@ -18,20 +18,20 @@ const props = defineProps({
 $color: rgb(135, 135, 135);
 
 .item {
-	display: inline-flex;
-	background-color: $color;
-	color: #fff;
-	padding: 4px 13px;
-	border-radius: 15px;
-	align-items: center;
-	border: 2px solid #333;
+  display: inline-flex;
+  background-color: $color;
+  color: #fff;
+  padding: 4px 13px;
+  border-radius: 15px;
+  align-items: center;
+  border: 2px solid #333;
 }
 
 .counter {
-	background-color: #fff;
-	color: $color;
-	padding: 1px 7px 0.5px;
-	border-radius: 50%;
-	margin-left: 5px;
+  background-color: #fff;
+  color: $color;
+  padding: 1px 7px 0.5px;
+  border-radius: 50%;
+  margin-left: 5px;
 }
 </style>
