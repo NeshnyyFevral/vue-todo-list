@@ -35,8 +35,8 @@ watch(store.tasks, store.watchTasks);
 }
 
 .root {
-	background: linear-gradient(3deg, #e6d16c, #16014c);
-	background-repeat: no-repeat;
+  background: linear-gradient(3deg, #e6d16c, #16014c);
+  background-repeat: no-repeat;
   height: 100vh;
   font-family: sans-serif;
 }
@@ -61,19 +61,19 @@ watch(store.tasks, store.watchTasks);
 }
 
 @media screen and (max-width: 700px){
-	.container{
-		padding: 50px 40px;
-	}
+  .container{
+    padding: 50px 40px;
+  }
 }
 
 @media screen and (max-width: 650px){
-	.container{
-		padding: 20px 40px;
-	}
-	.title{
-		font-size: 50px;
+  .container{
+    padding: 20px 40px;
+  }
+  .title{
+    font-size: 50px;
     margin-bottom: 20px;
-	}
+  }
 }
 
 @media screen and (max-width: 500px){
