@@ -33,17 +33,14 @@ const store = storeTasks();
 	&:global(-leave-active){
 		transition: all 0.5s ease;
 	}
-
 	&:global(-move){
 		transition: all 0.8s ease;
 	}
-
 	&:global(-enter-from),
 	&:global(-leave-to){
 		opacity: 0;
 		transform: translateX(30px);
 	}
-
 	&:global(-leave-active){
 		position: absolute;
 	}

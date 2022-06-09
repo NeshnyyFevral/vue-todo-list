@@ -16,6 +16,7 @@ const props = defineProps({
 
 <style module lang="scss">
 $color: rgb(135, 135, 135);
+
 .item {
 	display: inline-flex;
 	background-color: $color;

@@ -1,24 +1,20 @@
 <template>
   <li
-    :class="$style['list-item']"
+    :class="$style.listItem"
     @mouseleave="hover = false"
     @mouseenter="hover = true"
   >
     <button
-      :class="[$style['toggle-btn'], {[$style['btn-complete']]: props.task.complete }]"
+      :class="[$style.toggleBtn, props.task.complete && $style.btnComplete]"
       @click="store.toggleDone(props.task)"
     />
-    <span
-      :class="[$style['item-text'], {[$style['text-complete']]: props.task.complete }]"
-    >
+    <span :class="[$style.itemText, props.task.complete && $style.textComplete]">
       {{ props.task.title }}
     </span>
-    <transition
-      :name="$style.container"
-    >
+    <transition :name="$style.container">
       <button
         v-show="hover"
-        :class="$style['remove-btn']"
+        :class="$style.removeBtn"
         @click="store.removeTask(props.task)"
       />
     </transition>
@@ -42,7 +38,7 @@ const hover = ref(false);
 </script>
 
 <style module lang="scss">
-.list-item {
+.listItem {
 	border: 2px solid rgb(225, 225, 225);
 	border-radius: 30px;
 	padding: 20px;
@@ -51,7 +47,7 @@ const hover = ref(false);
 	overflow-x: hidden;
 }
 
-.toggle-btn {
+.toggleBtn {
 	background-image: url(../icons/accept.svg);
 	background-repeat: no-repeat;
 	position: absolute;
@@ -63,11 +59,11 @@ const hover = ref(false);
 	padding: 12px;
 	transition: background-color 0.2s linear, background-image 0.2s linear;
 }
-.toggle-btn:hover {
-		background-color: rgb(225, 225, 225);
+.toggleBtn:hover {
+	background-color: rgb(225, 225, 225);
 }
 
-.remove-btn {
+.removeBtn {
 	background-image: url(../icons/cart.svg);
 	background-color: #fff;
 	border: none;
@@ -81,31 +77,31 @@ const hover = ref(false);
 	transition: background-color 0.2s linear;
 }
 
-.remove-btn:hover {
+.removeBtn:hover {
 	background-color: rgb(232, 232, 232);
 }
 
-.item-text {
+.itemText {
 	margin-left: 40px;
 	font-size: 20px;
 }
 
-.btn-complete {
+.btnComplete {
 	background-image: url(../icons/cancel.svg);
 	opacity: 0.5;
 }
 
-.text-complete {
+.textComplete {
 	text-decoration: line-through;
 	opacity: 0.5;
 }
 .container{
 	&:global(-enter-active),
-  &:global(-leave-active) {
+	&:global(-leave-active) {
 		transition: all 0.2s ease;
 	}
-  &:global(-enter-from),
-  &:global(-leave-to) {
+	&:global(-enter-from),
+	&:global(-leave-to) {
 		opacity: 0;
 	transform: translateX(20px);
 	}

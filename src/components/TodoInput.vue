@@ -80,7 +80,6 @@ const create = () => {
 		width: 90%;
 	}
 }
-
 @media screen and (max-width: 500px){
 	.button{
 		right: 35px;
